@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Outer background gradient: white to very light blue -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%" fx="50%" fy="40%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#eef4ff" />
+      <stop offset="100%" stop-color="#d6e8ff" />
+    </radialGradient>
+
+    <!-- Main blue shape gradient -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4DA3FF" />
+      <stop offset="100%" stop-color="#1A6FFF" />
+    </linearGradient>
+
+    <!-- Shadow/glow behind the whole icon -->
+    <radialGradient id="shadowGrad" cx="55%" cy="65%" r="55%">
+      <stop offset="0%" stop-color="#A8C8FF" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#C8DFFF" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Translucent right-triangle extension glow -->
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6AB4FF" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#3A8BFF" stop-opacity="0.18" />
+    </linearGradient>
+
+    <!-- Soft vertical center stripe (refraction look) -->
+    <linearGradient id="stripeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BDD8FF" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#A0C8FF" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#C8E0FF" stop-opacity="0.30" />
+    </linearGradient>
+
+    <clipPath id="roundedSquare">
+      <rect x="0" y="0" width="1024" height="1024" rx="230" ry="230" />
+    </clipPath>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect x="0" y="0" width="1024" height="1024" rx="230" ry="230" fill="url(#bgGrad)" />
+
+  <!-- Ambient shadow blob -->
+  <ellipse cx="540" cy="620" rx="360" ry="300" fill="url(#shadowGrad)" clip-path="url(#roundedSquare)" />
+
+  <!-- 
+    PLAY ICON SHAPE:
+    - Left side: tall rounded rectangle (the "left face" of a 3D card)
+    - Right side: triangle/wedge that makes it look like a play button folded at the right edge
+    The overall shape: left portion is a rounded rect, right portion tapers to a point (play arrow effect)
+  -->
+
+  <!-- Outer translucent "ghost" shape — larger, lighter, offset right+down -->
+  <path d="
+    M 310 260
+    Q 310 200 370 200
+    L 530 200
+    Q 590 200 590 260
+    L 590 560
+    Q 590 610 550 630
+    L 390 730
+    Q 355 750 335 725
+    Q 310 698 310 660
+    Z
+  " fill="url(#glowGrad)" opacity="0.6" transform="translate(70 60)" clip-path="url(#roundedSquare)" />
+
+  <!-- Bottom-right refraction stripe -->
+  <path d="
+    M 530 280
+    L 680 430
+    L 680 760
+    L 530 760
+    Z
+  " fill="url(#stripeGrad)" clip-path="url(#roundedSquare)" />
+
+  <!-- Main vivid blue play-card shape -->
+  <path d="
+    M 310 270
+    Q 310 205 375 205
+    L 540 205
+    Q 600 205 600 270
+    L 600 555
+    Q 600 608 558 630
+    L 388 732
+    Q 352 752 330 726
+    Q 310 702 310 665
+    Z
+  " fill="url(#blueGrad)" />
+
+  <!-- Subtle highlight on top-left of main shape -->
+  <path d="
+    M 320 270
+    Q 320 215 375 215
+    L 480 215
+    Q 490 215 490 225
+    Q 490 235 480 235
+    L 375 235
+    Q 340 235 330 265
+    L 330 270
+    Q 330 280 320 280
+    Z
+  " fill="white" opacity="0.18" />
+</svg>

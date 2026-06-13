@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Community-Led Growth Engine for SAP China — Lu You</title>
+  <meta name="description" content="How community engagement, gamification and ecosystem participation helped turn user engagement into long-term trust for SAP China." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="apple-touch-icon" href="../images/favicon.svg" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --color-ink:        #2c2b3a;
+      --color-dark:       #23222f;
+      --color-mid:        #514f64;
+      --color-muted:      #9391a6;
+      --color-border:     #e4e2ed;
+      --color-surface:    #f4f3f8;
+      --color-warm:       #f7f6fb;
+      --color-white:      #ffffff;
+      --color-bg:         #fafaf8;
+      --color-accent:     #4a63b8;
+      --color-accent-pale:#eef0fa;
+      --color-accent-dark:#3a50a0;
+
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'Inter', -apple-system, sans-serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.7s;
+
+      --container: 720px;
+      --space-xs:  0.75rem;
+      --space-sm:  1.25rem;
+      --space-md:  2.5rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 16px rgba(44,43,58,0.08); }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-ink);
+      letter-spacing: -0.01em;
+    }
+    .nav-back {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back i { font-size: 0.7rem; }
+
+    /* ── HERO COVER IMAGE ── */
+    .hero-cover {
+      width: 100%;
+      height: clamp(280px, 42vw, 560px);
+      margin-top: 60px;
+      overflow: hidden;
+      position: relative;
+      background: var(--color-dark);
+    }
+    .hero-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      transition: transform 0.8s var(--ease-out);
+    }
+    .hero-cover:hover .hero-cover-img { transform: scale(1.02); }
+    .hero-cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(35,34,47,0.55) 100%
+      );
+    }
+    .hero-cover-caption {
+      position: absolute;
+      bottom: 1.25rem;
+      right: 1.5rem;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.52);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-hero-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .article-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+    .article-deck {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.5vw, 1.1875rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--color-mid);
+      margin-bottom: var(--space-md);
+      max-width: 580px;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border);
+    }
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .article-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-pale);
+      padding: 0.25rem 0.625rem;
+      border-radius: 2px;
+    }
+    .scroll-hint {
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint-arrow {
+      display: inline-block;
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      padding-block: var(--space-xl);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-content {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    /* Section dividers */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+    }
+    .section-rule-label {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      white-space: nowrap;
+    }
+    .section-rule-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* Prose */
+    .prose-block {
+      margin-bottom: var(--space-lg);
+    }
+    .prose-block p {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--color-ink);
+      margin-bottom: 1.25em;
+    }
+    .prose-block p:last-child { margin-bottom: 0; }
+    .prose-block strong { font-weight: 600; color: var(--color-ink); }
+
+    /* Challenge callout */
+    .challenge-callout {
+      background: var(--color-accent-pale);
+      border-left: 3px solid var(--color-accent);
+      padding: 1.5rem 2rem;
+      margin-bottom: var(--space-lg);
+    }
+    .challenge-callout p {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--color-ink);
+    }
+    .challenge-callout strong { font-style: normal; font-weight: 600; }
+
+    /* Approach pillars */
+    .pillar-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .pillar-card {
+      background: var(--color-white);
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: background 0.22s;
+    }
+    .pillar-card:hover { background: var(--color-surface); }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+      text-align: center;
+      padding-top: 0.15rem;
+    }
+    .pillar-body {}
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .pillar-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-mid);
+      line-height: 1.65;
+    }
+    .pillar-text p { margin-bottom: 0.75em; }
+    .pillar-text p:last-child { margin-bottom: 0; }
+
+    /* Impact cards — 3-col */
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .impact-cell {
+      background: var(--color-white);
+      padding: 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: background 0.22s;
+    }
+    .impact-cell:hover { background: var(--color-surface); }
+    .impact-cell-heading {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+    }
+    .impact-cell-body {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      color: var(--color-mid);
+      line-height: 1.65;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      margin-block: var(--space-lg);
+      padding: var(--space-md) clamp(1.5rem, 4vw, 2.5rem);
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-accent-pale);
+    }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--color-ink);
+    }
+
+    /* Takeaway list */
+    .takeaway-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: var(--space-lg);
+    }
+    .takeaway-list li {
+      display: grid;
+      grid-template-columns: 1.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 0.75rem 0;
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: var(--color-ink);
+      line-height: 1.65;
+    }
+    .takeaway-list li::before {
+      content: '—';
+      color: var(--color-accent);
+      font-size: 0.875rem;
+      padding-top: 0.2rem;
+    }
+    .takeaway-trust {
+      display: block;
+      padding-left: 2.5rem;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    /* Related grid */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .related-card {
+      background: var(--color-white);
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: background 0.22s;
+    }
+    .related-card:hover { background: var(--color-surface); }
+    .related-card-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+    .related-card-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+    .related-card-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: auto;
+    }
+    .related-card-link i { font-size: 0.7rem; transition: transform 0.2s; }
+    .related-card:hover .related-card-link i { transform: translateX(3px); }
+
+    /* Footer */
+    .article-footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-md) clamp(1.5rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-back {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .footer-back:hover { color: var(--color-accent); }
+    .footer-sig {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+    }
+
+    /* ── SCROLL-REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--duration) var(--ease-out),
+                  transform var(--duration) var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay   { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .impact-row { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .pillar-card { grid-template-columns: 2rem 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Lu You</a>
+      <a href="../index.html#work" class="nav-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Featured Work
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── HERO COVER IMAGE ── -->
+  <div class="hero-cover">
+    <img
+      class="hero-cover-img"
+      src="../images/sap-community.webp"
+      alt="SAP community event — SAP Labs China"
+    />
+    <div class="hero-cover-overlay"></div>
+    <span class="hero-cover-caption">SAP Labs China · Community Marketing</span>
+  </div>
+
+  <!-- ── ARTICLE HERO ── -->
+  <header class="article-hero">
+    <div class="article-hero-inner">
+      <span class="article-label reveal">Featured Work · Case Study</span>
+      <h1 class="article-title reveal reveal-delay">
+        Building a Community-Led<br />Growth Engine for SAP China
+      </h1>
+      <p class="article-deck reveal reveal-delay-2">
+        How community engagement, gamification and ecosystem participation helped turn user engagement into long-term trust.
+      </p>
+      <div class="article-meta reveal reveal-delay-2">
+        <div class="article-tags">
+          <span class="article-tag">Community-Led Growth</span>
+          <span class="article-tag">B2B Community Marketing</span>
+          <span class="article-tag">Gamification</span>
+          <span class="article-tag">Ecosystem Marketing</span>
+          <span class="article-tag">KOL Management</span>
+        </div>
+      </div>
+      <div class="scroll-hint reveal reveal-delay-2">
+        <span class="scroll-hint-arrow">↓</span>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BODY ── -->
+  <div class="article-body">
+    <div class="article-content">
+
+      <!-- BACKGROUND & CHALLENGE -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Background &amp; Challenge</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>For enterprise software companies, marketing is about far more than brand awareness.</p>
+        <p>Unlike consumer products, enterprise solutions often involve complex technologies, long decision-making cycles and multiple stakeholders. Before adopting a product, customers need to learn, explore best practices, seek peer recommendations and build confidence in both the product and the surrounding ecosystem.</p>
+        <p>For SAP, community was not simply a content distribution channel. It was a critical infrastructure connecting customers, developers, partners, technical experts and internal product teams.</p>
+        <p>At the time, SAP sought to strengthen its local community presence in China by bringing together a fragmented network of users, partners, developers and industry influencers into a more connected and engaged ecosystem.</p>
+        <p>The challenge was clear:</p>
+        <p><strong>How could SAP Community Network evolve from a content destination into a thriving community that encouraged participation, knowledge sharing and long-term ecosystem engagement?</strong></p>
+      </div>
+
+      <!-- APPROACH -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Approach</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>As the Community Evangelist of SAP Labs China, I executed regional community strategies in the local market. My responsibilities spanned community operations, user engagement, gamification initiatives, online-to-offline programs, influencer relations, content marketing and performance reporting.</p>
+      </div>
+
+      <div class="pillar-stack reveal">
+
+        <div class="pillar-card">
+          <div class="pillar-num">1</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Driving Engagement Through Gamification</div>
+            <div class="pillar-text">
+              <p>To encourage ongoing participation and knowledge sharing, I supported the local implementation of gamification mechanisms, including points, badges and contributor ranking systems.</p>
+              <p>Community activities such as posting, commenting, answering questions and participating in events were translated into visible recognition and progression paths. These mechanisms helped increase participation, encourage long-term engagement, identify high-value contributors and establish a stronger recognition system within the community.</p>
+              <p>For key contributors and opinion leaders, I leveraged tiered engagement programs, contributor recognition and content visibility initiatives to strengthen their influence and encourage continued participation. Over time, the community developed a stronger culture of peer-to-peer knowledge sharing driven by its most engaged members.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">2</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Connecting Online Communities with Offline Events</div>
+            <div class="pillar-text">
+              <p>I supported the execution of major SAP technology events, including SAP TechEd, D-Code, CodeJam and Hackathons, and served as a SAP Community Network Ambassador during these initiatives.</p>
+              <p>Rather than treating events as standalone marketing activities, we positioned them as entry points into the broader community ecosystem. Through event registration programs, post-event content distribution and ongoing discussions, we transformed one-time event participants into longer-term community members.</p>
+              <p>The conversation did not end when the event ended. The community became the place where knowledge sharing, collaboration and relationship building continued.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">3</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Building a Content and Influencer Ecosystem</div>
+            <div class="pillar-text">
+              <p>Alongside community operations, I supported a broad range of content and communication initiatives, including social media management, newsletter production, video content development, SEO programs and user research projects. I also worked closely with technology journalists, industry influencers, developer advocates and technical experts to strengthen the community's reach and credibility.</p>
+              <p>By combining official content, expert perspectives and third-party amplification, we increased the visibility of the community while reinforcing SAP's position within the local technology ecosystem.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-num">4</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Demonstrating Community Value Through Data</div>
+            <div class="pillar-text">
+              <p>To ensure community initiatives remained aligned with business objectives, I tracked key performance indicators such as user growth, engagement levels, content contributions, community participation and event-to-community conversion. These insights were translated into regular reports for management and business stakeholders, helping them better understand the role of community in customer education, ecosystem development and brand building.</p>
+              <p>The data also informed future optimisation efforts and helped strengthen internal support for community investment.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- IMPACT -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Impact</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>This initiative contributed to the development of a more active and influential technology community for SAP in China. It helped establish a localised operating model that connected customers, developers, partners and industry influencers through a shared platform for learning and collaboration.</p>
+        <p>By combining gamification, contributor engagement programs and community-led knowledge sharing, the project encouraged members to evolve from passive content consumers into active participants and contributors. It also strengthened the connection between online communities and offline technology events, transforming one-time interactions into longer-term relationships.</p>
+        <p>Over time, the community became an increasingly important vehicle for product education, ecosystem engagement and trust building, while regular reporting helped make its value more visible across internal stakeholder groups.</p>
+      </div>
+
+      <!-- KEY TAKEAWAYS -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Key Takeaways</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>For complex enterprise products, customers often trust communities before they trust brands.</p>
+        <p>The most valuable communities are not simply content channels. They are trust networks that connect users, experts, partners and product teams around shared knowledge and experiences.</p>
+        <p>When content, events, incentives and expert participation are intentionally connected, communities evolve beyond marketing assets and become part of the broader business ecosystem. They help users solve problems, learn from peers and build confidence in the solutions they adopt.</p>
+        <p>Years later, while working on corporate branding, thought leadership, sports sponsorships and AI-driven marketing initiatives, I have found that many seemingly different marketing disciplines ultimately address the same challenge:</p>
+      </div>
+
+      <div class="pull-quote reveal">
+        <blockquote>
+          <strong>How do you build trust in complex decision-making environments?</strong>
+        </blockquote>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>Technologies change. Channels evolve.</p>
+        <p>But trust remains at the heart of effective marketing.</p>
+        <p>And communities remain one of the most enduring ways to build it.</p>
+      </div>
+
+      <!-- RELATED WORK -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Related Work</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="related-grid reveal">
+        <a class="related-card" href="formula-e.html">
+          <span class="related-card-label">Sponsorship · B2B Marketing</span>
+          <span class="related-card-title">From Sports Sponsorship to Business Engagement</span>
+          <span class="related-card-link">
+            View Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+        <a class="related-card" href="abm-cit.html">
+          <span class="related-card-label">B2B Marketing · Account-Based Marketing</span>
+          <span class="related-card-title">Designing an Account-Based Marketing System for Enterprise Growth</span>
+          <span class="related-card-link">
+            View Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="article-footer">
+    <a href="../index.html#work" class="footer-back">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      Back to Featured Work
+    </a>
+    <span class="footer-sig">Lu You</span>
+  </footer>
+
+  <!-- ── JS ── -->
+  <script>
+    /* Nav shadow on scroll */
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* Scroll-reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

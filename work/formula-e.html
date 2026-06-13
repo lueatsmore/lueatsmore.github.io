@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Sports Sponsorship to Business Engagement — Lu You</title>
+  <meta name="description" content="How I turned TCS' global Formula E sponsorship into a locally relevant marketing engine for client engagement, thought leadership, and employee participation." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="apple-touch-icon" href="../images/favicon.svg" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --color-ink:        #2c2b3a;
+      --color-dark:       #23222f;
+      --color-mid:        #514f64;
+      --color-muted:      #9391a6;
+      --color-border:     #e4e2ed;
+      --color-surface:    #f4f3f8;
+      --color-warm:       #f7f6fb;
+      --color-white:      #ffffff;
+      --color-bg:         #fafaf8;
+      --color-accent:     #4a63b8;
+      --color-accent-pale:#eef0fa;
+      --color-accent-dark:#3a50a0;
+
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'Inter', -apple-system, sans-serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.7s;
+
+      --container: 720px;
+      --space-xs:  0.75rem;
+      --space-sm:  1.25rem;
+      --space-md:  2.5rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 16px rgba(44,43,58,0.08); }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-ink);
+      letter-spacing: -0.01em;
+    }
+    .nav-back {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back i { font-size: 0.7rem; }
+
+    /* ── HERO COVER IMAGE ── */
+    .hero-cover {
+      width: 100%;
+      height: clamp(280px, 42vw, 560px);
+      margin-top: 60px;
+      overflow: hidden;
+      position: relative;
+      background: var(--color-dark);
+    }
+    .hero-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      transition: transform 0.8s var(--ease-out);
+    }
+    .hero-cover:hover .hero-cover-img { transform: scale(1.02); }
+    .hero-cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(35,34,47,0.55) 100%
+      );
+    }
+    .hero-cover-caption {
+      position: absolute;
+      bottom: 1.25rem;
+      right: 1.5rem;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.52);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── ARTICLE HERO ── */
+    .article-hero {
+      padding-top: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-hero-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .article-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+    .article-deck {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.5vw, 1.1875rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--color-mid);
+      margin-bottom: var(--space-md);
+      max-width: 560px;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border);
+    }
+    .article-meta-item {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .article-meta-item i { font-size: 0.7rem; color: var(--color-accent); }
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .article-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-pale);
+      padding: 0.25rem 0.625rem;
+      border-radius: 2px;
+    }
+    .scroll-hint {
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint-arrow {
+      display: inline-block;
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      padding-block: var(--space-xl);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-content {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    /* Section dividers */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+    }
+    .section-rule-label {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      white-space: nowrap;
+    }
+    .section-rule-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* Prose */
+    .prose-block {
+      margin-bottom: var(--space-lg);
+    }
+    .prose-block p {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--color-ink);
+      margin-bottom: 1.25em;
+    }
+    .prose-block p:last-child { margin-bottom: 0; }
+    .prose-block strong { font-weight: 600; color: var(--color-ink); }
+
+    /* Role strip */
+    .role-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .role-item {
+      background: var(--color-white);
+      padding: 1.25rem 1.5rem;
+      transition: background 0.22s;
+    }
+    .role-item:hover { background: var(--color-surface); }
+    .role-item-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      display: block;
+      margin-bottom: 0.375rem;
+    }
+    .role-item-value {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      color: var(--color-ink);
+      line-height: 1.45;
+    }
+
+    /* Approach pillars */
+    .pillar-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .pillar-card {
+      background: var(--color-white);
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: background 0.22s;
+    }
+    .pillar-card:hover { background: var(--color-surface); }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+      text-align: center;
+      padding-top: 0.15rem;
+    }
+    .pillar-body {}
+    .pillar-title {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      margin-bottom: 0.5rem;
+    }
+    .pillar-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-mid);
+      line-height: 1.65;
+    }
+
+    /* Impact numbers */
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .impact-cell {
+      background: var(--color-white);
+      padding: 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: background 0.22s;
+    }
+    .impact-cell:hover { background: var(--color-surface); }
+    .impact-cell-heading {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+    }
+    .impact-cell-body {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      color: var(--color-mid);
+      line-height: 1.65;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      margin-block: var(--space-lg);
+      padding: var(--space-md) clamp(1.5rem, 4vw, 2.5rem);
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-accent-pale);
+    }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--color-ink);
+    }
+
+    /* Related work */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .related-card {
+      background: var(--color-white);
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      transition: background 0.22s;
+    }
+    .related-card:hover { background: var(--color-surface); }
+    .related-card-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+    .related-card-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+    .related-card-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: auto;
+    }
+    .related-card-link i { font-size: 0.7rem; transition: transform 0.2s; }
+    .related-card:hover .related-card-link i { transform: translateX(3px); }
+
+    /* Footer */
+    .article-footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-md) clamp(1.5rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-back {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .footer-back:hover { color: var(--color-accent); }
+    .footer-sig {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+    }
+
+    /* ── SCROLL-REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--duration) var(--ease-out),
+                  transform var(--duration) var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay  { transition-delay: 0.12s; }
+    .reveal-delay-2{ transition-delay: 0.24s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .impact-row { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .pillar-card { grid-template-columns: 2rem 1fr; }
+      .role-strip { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Lu You</a>
+      <a href="../index.html#work" class="nav-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Featured Work
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── HERO COVER IMAGE ── -->
+  <div class="hero-cover">
+    <img
+      class="hero-cover-img"
+      src="../images/formula-e-hero.webp"
+      alt="Jaguar TCS Racing Formula E car on circuit"
+    />
+    <div class="hero-cover-overlay"></div>
+    <span class="hero-cover-caption">Jaguar TCS Racing · Formula E</span>
+  </div>
+
+  <!-- ── ARTICLE HERO ── -->
+  <header class="article-hero">
+    <div class="article-hero-inner">
+      <span class="article-label reveal">Featured Work · Case Study</span>
+      <h1 class="article-title reveal reveal-delay">
+        From Sports Sponsorship<br />to Business Engagement
+      </h1>
+      <p class="article-deck reveal reveal-delay-2">
+        Three years of turning TCS' global Formula E sponsorship<br />
+        into a locally relevant marketing engine in China.
+      </p>
+      <div class="article-meta reveal reveal-delay-2">
+        <div class="article-tags">
+          <span class="article-tag">Sponsorship</span>
+          <span class="article-tag">B2B Marketing</span>
+          <span class="article-tag">Client Engagement</span>
+          <span class="article-tag">Motorsport</span>
+        </div>
+
+      </div>
+      <div class="scroll-hint reveal reveal-delay-2">
+        <span class="scroll-hint-arrow">↓</span>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BODY ── -->
+  <div class="article-body">
+    <div class="article-content">
+
+      <!-- OVERVIEW -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Overview</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>During my time as Marketing Manager at TCS, I led the local marketing activation around the Shanghai E-Prix for three consecutive years, turning TCS' global sports sponsorship asset as the title sponsor and technology partner of Jaguar TCS Racing into a platform for brand visibility, client engagement, and employee participation in the local market.</p>
+        <p>Rather than treating Formula E as a race-day branding opportunity, I built the Shanghai E-Prix into a broader business engagement platform for TCS China. The program connected sustainability, technology innovation, customer experience, senior stakeholder engagement, and employee participation, turning a global sponsorship asset into a locally relevant marketing engine.</p>
+      </div>
+
+      <!-- MY ROLE -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">My Role</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>I was responsible for the overall activity planning and local execution, including client hospitality, business sessions, media and content communications, digital campaigns, employee engagement, on-site experience design, and cross-functional coordination.</p>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>The project required close collaboration with local business teams, the global sports sponsorship team, Global Communications and Social Media teams, the India-based content support team, race and team partners, media partners, influencers, agencies, and suppliers. My role was to ensure that the activation stayed aligned with TCS' global sponsorship narrative while also addressing the relationship-building and communications needs of the local market.</p>
+      </div>
+
+      <!-- THE CHALLENGE -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">The Challenge</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>TCS' partnership with Jaguar TCS Racing carries strong global brand value. In China, the key challenge was how to move this asset beyond brand visibility and turn it into an experience that people could participate in, share, and build relationships around.</p>
+        <p>Within a limited race-week window, I needed to serve multiple goals at once: strengthen connections with high-value clients, reinforce TCS' association with technology and sustainability, create media and social content opportunities, and enable employees to participate in this global sponsorship platform.</p>
+      </div>
+
+      <!-- THE APPROACH -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">The Approach</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>I positioned the Shanghai E-Prix as a <strong>multi-touchpoint annual marketing platform</strong>, rather than a standalone race hospitality event.</p>
+      </div>
+
+      <div class="pillar-stack reveal">
+        <div class="pillar-card">
+          <div class="pillar-num">1</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Client Engagement</div>
+            <div class="pillar-text">Designed differentiated hospitality experiences including senior client invitations, family-friendly race viewing, driver interaction opportunities, and on-site circuit experiences. These moments created a relaxed but high-quality environment for clients to build deeper connections with the TCS team.</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">2</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Thought Leadership</div>
+            <div class="pillar-text">Planned business sessions around AI, sports technology, sustainability, and business innovation — extending the momentum of the race into deeper conversations with clients and business partners.</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">3</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Communications</div>
+            <div class="pillar-text">Drove digital and offline touchpoints including a Show Car flash store, H5 interactive experience, and social media advertising. Worked closely with the Communications team to activate media and influencer programs. By connecting the race experience, team assets, and TCS' technology narrative, these initiatives helped the local market understand TCS' role not only as a sponsor, but as a technology enabler.</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">4</div>
+          <div class="pillar-body">
+            <div class="pillar-title">Employee Engagement</div>
+            <div class="pillar-text">Created internal programs linked to sustainability, encouraging employees to participate through low-carbon commuting, green lifestyle actions, and interactive challenges. As AI became a key company theme, the employee program evolved into an AI Creative Challenge — connecting race engagement with creative AI expression and expanding participation from "watching the race" to "co-creating content."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PULL QUOTE -->
+      <div class="pull-quote reveal">
+        <blockquote>
+          "Effective sponsorship marketing is not about placing the logo in a more visible position. It is about finding the connection between brand, business, clients, and local culture — then turning that connection into market actions that people can experience, discuss, and remember."
+        </blockquote>
+      </div>
+
+      <!-- THE IMPACT -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">The Impact</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="impact-row reveal">
+        <div class="impact-cell">
+          <span class="impact-cell-heading">Reputation</span>
+          <span class="impact-cell-body">Amplified TCS China's local brand presence through an integrated reputation engine combining media and creator programs, Show Car showcase, and digital campaigns that extended the sponsorship story beyond race day.</span>
+        </div>
+        <div class="impact-cell">
+          <span class="impact-cell-heading">Revenue</span>
+          <span class="impact-cell-body">Supported business development by turning race-week engagement into senior client conversations, business sessions, and relationship-building moments with high-value accounts.</span>
+        </div>
+        <div class="impact-cell">
+          <span class="impact-cell-heading">Relationship</span>
+          <span class="impact-cell-body">Deepened stakeholder relationships across clients, media, employees, and global teams by creating meaningful ways for each audience to participate in the Shanghai E-Prix platform.</span>
+        </div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>After three years of continuous iteration, the project evolved from an annual sponsorship activation into one of TCS China's signature integrated marketing programs. Client participation continued to grow, reaching a new high in the final year, while media, digital engagement, and employee participation became part of a more complete activation loop.</p>
+        <p>More importantly, this project helped me rethink sports sponsorship as an operable marketing asset rather than a brand exposure opportunity. It can support client relationships, business conversations, brand storytelling, employee engagement, and market communications, while becoming stronger through year-by-year learning and optimisation.</p>
+      </div>
+
+      <!-- WHAT I LEARNED -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">What I Learned</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="prose-block reveal">
+        <p>This project deepened my understanding of sponsorship activation in B2B marketing. Effective sponsorship marketing is not about placing the logo in a more visible position. It is about finding the connection between brand, business, clients, and local culture, then turning that connection into market actions that people can experience, discuss, and remember.</p>
+      </div>
+
+      <!-- RELATED WORK -->
+      <div class="section-rule reveal">
+        <span class="section-rule-label">Related Work</span>
+        <div class="section-rule-line"></div>
+      </div>
+
+      <div class="related-grid reveal">
+        <a class="related-card" href="abm-cit.html">
+          <span class="related-card-label">B2B Marketing · Account-Based Marketing</span>
+          <span class="related-card-title">Designing an Account-Based Marketing System for Enterprise Growth</span>
+          <span class="related-card-link">
+            View Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+        <a class="related-card" href="sap-community.html">
+          <span class="related-card-label">Community · Ecosystem Marketing</span>
+          <span class="related-card-title">Building a Community-Led Growth Engine for SAP China</span>
+          <span class="related-card-link">
+            View Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="article-footer">
+    <a href="../index.html#work" class="footer-back">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      Back to Featured Work
+    </a>
+    <span class="footer-sig">Lu You</span>
+  </footer>
+
+  <!-- ── JS ── -->
+  <script>
+    /* Nav shadow on scroll */
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* Scroll-reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

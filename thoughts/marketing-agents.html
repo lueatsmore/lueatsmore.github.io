@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top 10 Marketing Agents You Need in 2026 — Lu You</title>
+  <meta name="description" content="From content output to always-on execution — we're moving from using AI to running systems." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="apple-touch-icon" href="../images/favicon.svg" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --color-ink:        #2c2b3a;
+      --color-dark:       #23222f;
+      --color-mid:        #514f64;
+      --color-muted:      #9391a6;
+      --color-border:     #e4e2ed;
+      --color-surface:    #f4f3f8;
+      --color-warm:       #f7f6fb;
+      --color-white:      #ffffff;
+      --color-bg:         #fafaf8;
+      --color-accent:     #4a63b8;
+      --color-accent-pale:#eef0fa;
+      --color-accent-dark:#3a50a0;
+
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'Inter', -apple-system, sans-serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.7s;
+
+      --container: 760px;
+      --space-xs:  0.75rem;
+      --space-sm:  1.25rem;
+      --space-md:  2.5rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: 0.05em;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back i { font-size: 0.75rem; transition: transform 0.25s var(--ease-out); }
+    .nav-back:hover i { transform: translateX(-4px); }
+
+    /* ── STICKY CATEGORY NAV ── */
+    .cat-nav {
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+      background: rgba(250,250,248,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+    }
+    .cat-nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display: none; }
+    .cat-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.875rem 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cat-nav-link:hover,
+    .cat-nav-link.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+    }
+    .cat-nav-num {
+      font-size: 0.625rem;
+      background: var(--color-accent-pale);
+      color: var(--color-accent);
+      padding: 0.1rem 0.35rem;
+      border-radius: 2px;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration) var(--ease-out),
+                  transform var(--duration) var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay   { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+
+    /* ── HERO ── */
+    .article-hero {
+      padding-top: calc(60px + var(--space-xl));
+      padding-bottom: var(--space-lg);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-hero-inner { max-width: var(--container); margin: 0 auto; }
+
+    .article-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin-bottom: 0.75rem;
+    }
+    .article-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-mid);
+      margin-bottom: 1.75rem;
+      line-height: 1.3;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border);
+    }
+    .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .article-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-pale);
+      padding: 0.25rem 0.625rem;
+      border-radius: 2px;
+    }
+    .article-meta-item {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .article-meta-item i { font-size: 0.7rem; color: var(--color-accent); }
+    .scroll-hint {
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint-arrow { animation: bounce 1.6s ease-in-out infinite; display: inline-block; }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(5px); }
+    }
+
+    /* ── BODY LAYOUT ── */
+    .article-body {
+      padding-block: var(--space-xl);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-content { max-width: var(--container); margin: 0 auto; }
+
+    /* Section rule */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+    .section-rule-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      white-space: nowrap;
+    }
+    .section-rule-line { flex: 1; height: 1px; background: var(--color-border); }
+
+    /* Prose */
+    .prose-block { margin-bottom: var(--space-lg); }
+    .prose-block p {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.3vw, 1.0625rem);
+      line-height: 1.85;
+      color: var(--color-ink);
+      margin-bottom: 1.25rem;
+    }
+    .prose-block p:last-child { margin-bottom: 0; }
+    .prose-block p strong { font-weight: 600; }
+
+    /* Intro gap list */
+    .gap-list {
+      list-style: none;
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .gap-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: var(--color-ink);
+    }
+    .gap-list li::before {
+      content: '—';
+      color: var(--color-accent);
+      font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    /* Shift callout */
+    .shift-callout {
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-accent-pale);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: var(--space-lg);
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--color-ink);
+      line-height: 1.6;
+    }
+    .shift-callout strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    /* ── CATEGORY SECTION ── */
+    .cat-section { margin-bottom: var(--space-lg); }
+
+    .cat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 1.25rem 1.75rem;
+      background: var(--color-dark);
+      margin-bottom: 1.5px;
+    }
+    .cat-header-num {
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .cat-header-title {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      flex: 1;
+    }
+    .cat-header-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.875rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Agent cards */
+    .agent-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: 0;
+    }
+    .agent-card {
+      background: var(--color-white);
+      padding: 1.75rem 2rem;
+      transition: background 0.22s;
+      border-left: 3px solid transparent;
+    }
+    .agent-card:hover {
+      background: var(--color-surface);
+      border-left-color: var(--color-accent);
+    }
+    .agent-card-top {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.875rem;
+    }
+    .agent-num {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+      min-width: 2rem;
+    }
+    .agent-name {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: 0.01em;
+    }
+    .agent-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.9375rem;
+      font-style: italic;
+      color: var(--color-mid);
+      margin-bottom: 1rem;
+      padding-left: 3rem;
+      line-height: 1.5;
+    }
+    .agent-details {
+      padding-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .agent-detail {
+      font-size: 0.875rem;
+      color: var(--color-mid);
+      display: flex;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .agent-detail-key {
+      font-weight: 600;
+      color: var(--color-ink);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+
+    /* How to start steps */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .step-row {
+      background: var(--color-white);
+      padding: 1.25rem 2rem;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      transition: background 0.22s;
+    }
+    .step-row:hover { background: var(--color-surface); }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-style: italic;
+      color: var(--color-accent);
+      line-height: 1;
+      text-align: center;
+    }
+    .step-text {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+
+    /* Five Things warnings list */
+    .warnings-list {
+      list-style: none;
+      counter-reset: warnings-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: var(--space-lg);
+      border-top: 1.5px solid var(--color-border);
+    }
+    .warnings-list li {
+      counter-increment: warnings-counter;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1.5px solid var(--color-border);
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      color: var(--color-ink);
+      line-height: 1.5;
+      transition: background 0.22s;
+    }
+    .warnings-list li:hover { background: var(--color-surface); }
+    .warnings-list li::before {
+      content: counter(warnings-counter);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--color-accent);
+      text-align: center;
+      line-height: 1;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      margin-block: var(--space-lg);
+      padding: var(--space-md) clamp(1.5rem, 4vw, 2.5rem);
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-accent-pale);
+    }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--color-ink);
+    }
+
+    /* Related */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .related-card {
+      background: var(--color-white);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.25s;
+    }
+    .related-card:hover { background: var(--color-surface); }
+    .related-card-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .related-card-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-ink);
+      flex: 1;
+    }
+    .related-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      transition: color 0.2s;
+    }
+    .related-card:hover .related-card-link { color: var(--color-accent); }
+    .related-card-link i { font-size: 0.7rem; transition: transform 0.25s var(--ease-out); }
+    .related-card:hover .related-card-link i { transform: translateX(4px); }
+
+    /* Footer */
+    .article-footer {
+      border-top: 1px solid var(--color-border);
+      padding-block: var(--space-md);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--color-accent); }
+    .back-link i { font-size: 0.75rem; transition: transform 0.25s var(--ease-out); }
+    .back-link:hover i { transform: translateX(-4px); }
+    .footer-byline { font-size: 0.8125rem; color: var(--color-muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .cat-header { flex-wrap: wrap; gap: 0.5rem; }
+      .cat-header-tagline { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .agent-tagline, .agent-details { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Lu You — Home">LY</a>
+      <a href="../index.html#thoughts" class="nav-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Selected Thoughts</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <header class="article-hero">
+      <div class="article-hero-inner">
+        <span class="article-label reveal">Selected Thoughts</span>
+        <h1 class="article-title reveal reveal-delay">Top 10 Marketing Agents<br />You Need in 2026</h1>
+        <p class="article-subtitle reveal reveal-delay">From Content Output to Always-On Execution</p>
+        <div class="article-meta reveal reveal-delay-2">
+          <div class="article-tags">
+            <span class="article-tag">Marketing</span>
+            <span class="article-tag">AI Agents</span>
+            <span class="article-tag">Strategy</span>
+            <span class="article-tag">Execution</span>
+          </div>
+          <span class="article-meta-item">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            Published · 2026
+          </span>
+          <span class="article-meta-item">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            6 min read
+          </span>
+        </div>
+        <div class="scroll-hint reveal reveal-delay-2">
+          <span class="scroll-hint-arrow">↓</span>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── STICKY CATEGORY NAV ── -->
+    <nav class="cat-nav" aria-label="Article sections">
+      <div class="cat-nav-inner">
+        <a href="#insight"   class="cat-nav-link">Insight <span class="cat-nav-num">3</span></a>
+        <a href="#content"   class="cat-nav-link">Content <span class="cat-nav-num">3</span></a>
+        <a href="#campaign"  class="cat-nav-link">Campaign <span class="cat-nav-num">3</span></a>
+        <a href="#analytics" class="cat-nav-link">Analytics <span class="cat-nav-num">1</span></a>
+        <a href="#how-to-start" class="cat-nav-link">How to Start</a>
+      </div>
+    </nav>
+
+    <!-- ── BODY ── -->
+    <div class="article-body">
+      <div class="article-content">
+
+        <!-- INTRO -->
+        <div class="shift-callout reveal">
+          <p>We're already heading into the second half of 2026. At this point, "using AI to generate content" is table stakes.</p>
+          <p>The real difference is shifting fast — from people who use AI to produce assets, to teams that run agents that actually <strong>do the work</strong>: track, decide, execute, and improve.</p>
+          <p>The ten agents below aren't future ideas. They're becoming basic infrastructure.</p>
+        </div>
+
+        <!-- ── CATEGORY 1: INSIGHT ── -->
+        <div class="cat-section" id="insight">
+          <div class="cat-header reveal">
+            <span class="cat-header-num">Category 01</span>
+            <span class="cat-header-title">Insight &amp; Intelligence</span>
+            <span class="cat-header-tagline">Helping teams notice what's changing earlier</span>
+          </div>
+
+          <div class="agent-stack">
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">01</span>
+                <span class="agent-name">Market Research Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Watches what's happening across the industry every day — trends, user conversations, competitor moves, funding news, policy shifts — and turns it into a short daily briefing.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Most teams don't suffer from lack of information. They suffer from overload and no time to process it. This is basically someone on the team whose only job is to read everything and show up every morning with what actually matters.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Look at the last 24 hours in AI marketing. What are 3 things worth paying attention to, and why do they matter for us?"</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">02</span>
+                <span class="agent-name">Customer Insight Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Goes through support tickets, sales notes, interviews, community posts, reviews, and surveys. Pulls out patterns in what users want, complain about, or hesitate on.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>A lot of marketing doesn't fail because of bad ideas. It fails because it doesn't sound like the customer. This agent keeps you close to how people actually talk and think.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Go through last week's support chats. When people ask about pricing, what are they really worried about? Pull out real phrases we can reuse in copy."</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">03</span>
+                <span class="agent-name">Competitor Intelligence Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Keeps an eye on competitors — websites, ads, SEO, social posts, product changes, pricing updates, hiring.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>This isn't about copying. It's about noticing direction changes early. Even hiring patterns can tell you where a competitor is heading before they announce anything.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Track these five competitors. If anything changes on pricing, homepage messaging, or product features, summarize it and tell me if it matters."</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── CATEGORY 2: CONTENT ── -->
+        <div class="cat-section" id="content">
+          <div class="cat-header reveal">
+            <span class="cat-header-num">Category 02</span>
+            <span class="cat-header-title">Content &amp; Growth</span>
+            <span class="cat-header-tagline">Turning content into something that keeps working after it's published</span>
+          </div>
+
+          <div class="agent-stack">
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">04</span>
+                <span class="agent-name">Content Strategy Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Turns positioning, audience segments, keywords, and business goals into a content plan — what to publish, when, and where.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Most teams still wake up and ask: "What should we post today?" That's not a strategy problem. It's a system problem.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Based on our Q2 priorities and target keywords, give me a 30-day content plan with topics, audiences, and channels."</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">05</span>
+                <span class="agent-name">Content Repurposing Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Takes one long piece of content and breaks it into everything else: short posts, videos, email sequences, sales scripts, ads, landing page sections.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>The gap between average and strong teams is no longer "who creates better content." It's "who squeezes more value out of the same content."</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Turn this 3,000-word article into a short video script, 3 LinkedIn posts, 5 sales follow-ups, and 2 ad ideas."</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">06</span>
+                <span class="agent-name">SEO / GEO Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Finds keyword gaps, content opportunities, and ways to show up in AI search results. Suggests improvements to structure, FAQs, and topic coverage.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Search is no longer just Google. AI tools are becoming the new front door. If they don't understand or cite you, you're invisible.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"For 'how to choose a CRM system', what are we missing on our site? What FAQs would help us show up more in AI search results?"</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── CATEGORY 3: CAMPAIGN ── -->
+        <div class="cat-section" id="campaign">
+          <div class="cat-header reveal">
+            <span class="cat-header-num">Category 03</span>
+            <span class="cat-header-title">Campaign &amp; Conversion</span>
+            <span class="cat-header-tagline">Making campaigns faster to build and easier to test</span>
+          </div>
+
+          <div class="agent-stack">
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">07</span>
+                <span class="agent-name">Campaign Planning Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Builds full campaign plans: goals, timelines, channels, assets, experiments, and how to measure success.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Campaign planning used to take days or weeks. Now you can get a usable draft in a couple of hours — and spend time refining instead of starting from zero.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"We have $200K for a campaign targeting users who added to cart but didn't buy. Build a full plan with channels, timing, and tests."</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">08</span>
+                <span class="agent-name">Ad Creative Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Generates multiple ad angles, hooks, headlines, and creative directions for different audiences and platforms.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>The value isn't in "one good idea." It's in how many ideas you can test. Most strong ideas show up after iteration, not the first draft.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"For SMB accounting software, give me 10 short video hooks for founders, finance leads, and freelancers."</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">09</span>
+                <span class="agent-name">Lifecycle Marketing Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Sends the right message depending on where the user is — new signup, active trial, stuck user, churn risk, or returning user.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Marketing is moving away from broadcasting the same message to everyone. Different users need different conversations.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Find users who signed up in the last 7 days but didn't activate. Send onboarding email. If still inactive after 24 hours, follow up via WeChat."</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── CATEGORY 4: ANALYTICS ── -->
+        <div class="cat-section" id="analytics">
+          <div class="cat-header reveal">
+            <span class="cat-header-num">Category 04</span>
+            <span class="cat-header-title">Analytics &amp; Feedback</span>
+            <span class="cat-header-tagline">Turning reporting into something that runs every day</span>
+          </div>
+
+          <div class="agent-stack">
+
+            <div class="agent-card reveal">
+              <div class="agent-card-top">
+                <span class="agent-num">10</span>
+                <span class="agent-name">Marketing Analytics Agent</span>
+              </div>
+              <div class="agent-details">
+                <div class="agent-detail">
+                  <span class="agent-detail-key">What it does</span>
+                  <span>Pulls data from all channels, spots anomalies, explains what changed, and suggests what to do next.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Why it matters in 2026</span>
+                  <span>Reports shouldn't be something you wait for at the end of the month. You should know what's going wrong — or right — as it happens.</span>
+                </div>
+                <div class="agent-detail">
+                  <span class="agent-detail-key">Example prompt</span>
+                  <span>"Any unusual changes today? Focus on yesterday's TikTok ads. Compare CPM and conversion vs last 3 days and explain what might be happening."</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- HOW TO START -->
+        <div class="section-rule reveal" id="how-to-start">
+          <span class="section-rule-label">How to Start (Without Overthinking It)</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="steps-list reveal">
+          <div class="step-row">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Pick one thing (Week 1).</strong> Find the most repetitive, annoying, time-consuming workflow in your team. Start there. Best first picks: Market Research or Marketing Analytics.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Build something small (Weeks 2–4).</strong> Use tools like Zapier, Make, n8n, Airtable, Retool, Clay, or basic OpenAI/Claude APIs. Don't try to build a "platform." Just get one loop working: <em>trigger → insight → suggestion → action → feedback</em>.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Add control (ongoing).</strong> Set limits: what it can and cannot do, budget caps, human approval at the start, kill switch if things go wrong.</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>Expand slowly.</strong> One agent at a time. Improve quality before adding complexity.</div>
+          </div>
+        </div>
+
+        <!-- FIVE THINGS -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Five Things You Shouldn't Ignore</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <ol class="warnings-list reveal">
+          <li>Privacy and compliance matter more as automation increases</li>
+          <li>Don't launch everything at once — it will break</li>
+          <li>Agents don't replace thinking; they extend it</li>
+          <li>Bad data will break everything faster than bad prompts</li>
+          <li>Always keep a way to shut things down instantly</li>
+        </ol>
+
+        <!-- CLOSING -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Closing</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>By the end of May 2026, you don't need all ten agents running.</p>
+          <p>But you should already have at least one.</p>
+          <p>Because the gap in Q3 won't be between teams using AI and teams not using it.</p>
+          <p>It will be between teams still doing everything manually — and teams where half the system is already running on agents.</p>
+          <p>Some teams are still writing briefs and compiling reports. Others already have systems doing that every day in the background.</p>
+          <p>The difference isn't prompts anymore.</p>
+          <p>It's systems.</p>
+          <p><strong>Start with one. Get it running. Then build from there.</strong></p>
+        </div>
+
+        <!-- RELATED THOUGHTS -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Related Thoughts</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="related-grid reveal">
+          <a class="related-card" href="ai-marketing.html">
+            <span class="related-card-label">Marketing · AI · Strategy</span>
+            <span class="related-card-title">From Campaigns to Market Intelligence</span>
+            <span class="related-card-link">
+              Read <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="related-card" href="recession.html">
+            <span class="related-card-label">Strategy · Resilience</span>
+            <span class="related-card-title">Strategic Combinations for Surviving and Thriving in a Recession</span>
+            <span class="related-card-link">
+              Read <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="article-footer">
+    <div class="article-footer-inner">
+      <a href="../index.html#thoughts" class="back-link">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Thoughts</span>
+      </a>
+      <span class="footer-byline">Lu You · 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+
+    // Nav shadow
+    const nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 10 ? '0 1px 24px rgba(44,43,58,0.08)' : 'none';
+    }, { passive: true });
+
+    // Active category nav highlight
+    const sections = document.querySelectorAll('[id]');
+    const catLinks  = document.querySelectorAll('.cat-nav-link');
+    const catObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          catLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.cat-nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => catObserver.observe(s));
+  </script>
+
+</body>
+</html>

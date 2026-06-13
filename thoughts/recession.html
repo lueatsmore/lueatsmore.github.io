@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategic Combinations for Surviving and Thriving in a Recession — Lu You</title>
+  <meta name="description" content="On resilience, long-term thinking and organisational adaptability during uncertainty." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="apple-touch-icon" href="../images/favicon.svg" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── TOKENS (mirrors index design system) ── */
+    :root {
+      --color-ink:        #2c2b3a;
+      --color-dark:       #23222f;
+      --color-mid:        #514f64;
+      --color-muted:      #9391a6;
+      --color-border:     #e4e2ed;
+      --color-surface:    #f4f3f8;
+      --color-warm:       #f7f6fb;
+      --color-white:      #ffffff;
+      --color-bg:         #fafaf8;
+      --color-accent:     #4a63b8;
+      --color-accent-pale:#eef0fa;
+      --color-accent-dark:#3a50a0;
+
+      --font-serif: 'Lora', Georgia, serif;
+      --font-sans:  'Inter', -apple-system, sans-serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration: 0.7s;
+
+      --container: 720px;
+      --space-xs:  0.75rem;
+      --space-sm:  1.25rem;
+      --space-md:  2.5rem;
+      --space-lg:  4rem;
+      --space-xl:  6rem;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: 0.05em;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--color-accent); }
+    .nav-back i { font-size: 0.75rem; transition: transform 0.25s var(--ease-out); }
+    .nav-back:hover i { transform: translateX(-4px); }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration) var(--ease-out),
+                  transform var(--duration) var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.28s; }
+
+    /* ── HERO ── */
+    .article-hero {
+      padding-top: calc(60px + var(--space-xl));
+      padding-bottom: var(--space-lg);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-hero-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .article-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+    .article-deck {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.5vw, 1.1875rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--color-mid);
+      margin-bottom: var(--space-md);
+      max-width: 560px;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: center;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border);
+    }
+    .article-meta-item {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .article-meta-item i { font-size: 0.7rem; color: var(--color-accent); }
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .article-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-pale);
+      padding: 0.25rem 0.625rem;
+      border-radius: 2px;
+    }
+    .scroll-hint {
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scroll-hint-arrow {
+      display: inline-block;
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      padding-block: var(--space-xl);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-content {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    /* Section dividers */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+    .section-rule-label {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      white-space: nowrap;
+    }
+    .section-rule-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    /* Prose */
+    .prose-block {
+      margin-bottom: var(--space-lg);
+    }
+    .prose-block p {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.3vw, 1.0625rem);
+      line-height: 1.85;
+      color: var(--color-ink);
+      margin-bottom: 1.25rem;
+    }
+    .prose-block p:last-child { margin-bottom: 0; }
+    .prose-block p strong {
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+
+    /* Research method boxes */
+    .method-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin-bottom: var(--space-lg);
+    }
+    .method-card {
+      width: 100%;
+      max-width: 340px;
+      border: 1px solid var(--color-border);
+      background: var(--color-white);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    .method-card-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .method-card-title {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      margin-bottom: 0.35rem;
+    }
+    .method-card-sub {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+    .method-plus {
+      font-size: 1.5rem;
+      color: var(--color-border);
+      padding: 0.75rem 0;
+      line-height: 1;
+    }
+
+    /* Insight cards */
+    .insights-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .insight-card {
+      background: var(--color-white);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      transition: background 0.25s;
+    }
+    .insight-card:hover { background: var(--color-surface); }
+    .insight-label {
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .insight-body {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--color-ink);
+    }
+    .insight-body p { margin-bottom: 0.75rem; }
+    .insight-body p:last-child { margin-bottom: 0; }
+
+    /* Framework */
+    .framework {
+      margin-bottom: var(--space-lg);
+    }
+    .framework-intro {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--color-ink);
+      margin-bottom: var(--space-md);
+    }
+    .framework-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .framework-step {
+      display: grid;
+      grid-template-columns: 2px 1fr;
+      gap: 0 1.75rem;
+    }
+    .framework-step-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .framework-step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+    .framework-step-vline {
+      flex: 1;
+      width: 2px;
+      background: var(--color-border);
+      min-height: 40px;
+    }
+    .framework-step:last-child .framework-step-vline { display: none; }
+    .framework-step-body {
+      padding-bottom: var(--space-md);
+    }
+    .framework-step-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: var(--color-accent);
+      padding: 0.25rem 0.625rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .framework-step-heading {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-ink);
+      margin-bottom: 0.75rem;
+    }
+    .framework-step-focus {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+    .framework-step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .framework-step-list li {
+      font-size: 0.9375rem;
+      color: var(--color-mid);
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .framework-step-list li::before {
+      content: '—';
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      margin-block: var(--space-lg);
+      padding: var(--space-md) clamp(1.5rem, 4vw, 2.5rem);
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-accent-pale);
+    }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--color-ink);
+    }
+
+    /* Final thought */
+    .final-thought {
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Related thoughts */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+    .related-card {
+      background: var(--color-white);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.25s;
+      cursor: pointer;
+    }
+    .related-card:hover { background: var(--color-surface); }
+    .related-card-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .related-card-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-ink);
+      flex: 1;
+    }
+    .related-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      transition: color 0.2s;
+    }
+    .related-card:hover .related-card-link { color: var(--color-accent); }
+    .related-card-link i { font-size: 0.7rem; transition: transform 0.25s var(--ease-out); }
+    .related-card:hover .related-card-link i { transform: translateX(4px); }
+
+    /* Footer nav */
+    .article-footer {
+      border-top: 1px solid var(--color-border);
+      padding-block: var(--space-md);
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+    }
+    .article-footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--color-accent); }
+    .back-link i { font-size: 0.75rem; transition: transform 0.25s var(--ease-out); }
+    .back-link:hover i { transform: translateX(-4px); }
+    .footer-byline {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .article-meta { gap: 0.4rem 1rem; }
+      .framework-step { grid-template-columns: 2px 1fr; gap: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Lu You — Home">LY</a>
+      <a href="../index.html#thoughts" class="nav-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Selected Thoughts</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <header class="article-hero">
+      <div class="article-hero-inner">
+        <span class="article-label reveal">Selected Thoughts</span>
+        <h1 class="article-title reveal reveal-delay">
+          Strategic Combinations<br />for Surviving and<br />Thriving in a Recession
+        </h1>
+        <p class="article-deck reveal reveal-delay-2">
+          On resilience, long-term thinking and<br />organisational adaptability during uncertainty.
+        </p>
+        <div class="article-meta reveal reveal-delay-2">
+          <div class="article-tags">
+            <span class="article-tag">Strategy</span>
+            <span class="article-tag">Resilience</span>
+            <span class="article-tag">ESG</span>
+            <span class="article-tag">Transformation</span>
+          </div>
+          <span class="article-meta-item">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            Published · 2026
+          </span>
+          <span class="article-meta-item">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            8 min read
+          </span>
+        </div>
+        <div class="scroll-hint reveal reveal-delay-2">
+          <span class="scroll-hint-arrow">↓</span>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── BODY ── -->
+    <div class="article-body">
+      <div class="article-content">
+
+        <!-- INTRODUCTION -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Introduction</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>Every recession reshapes the competitive landscape.</p>
+          <p>Some companies retreat into survival mode. Others quietly use the crisis to reinvent themselves. When the downturn passes, a few emerge leaner, stronger and more competitive than before.</p>
+          <p>The difference is rarely luck. More often, it is the result of strategic choices made long before uncertainty arrives.</p>
+          <p>In an era shaped by AI disruption, geopolitical tension and economic volatility, resilience is no longer just a defensive capability. <strong>It has become a competitive advantage.</strong></p>
+        </div>
+
+        <!-- RESEARCH APPROACH -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Research Approach</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>This article draws on a combination of academic literature, quantitative analysis, case studies and semi-structured interviews to explore how companies respond to economic downturns and prolonged uncertainty.</p>
+          <p>The quantitative analysis used datasets covering more than 4,100 companies from the LESG Workspace platform, including accounting, business intelligence and ESG-related indicators. Regression analysis models were applied to identify strategic patterns associated with stronger organisational resilience.</p>
+          <p>Alongside the data analysis, case studies and qualitative interviews helped contextualise how different strategic choices interact in real business environments.</p>
+        </div>
+
+        <div class="method-stack reveal">
+          <div class="method-card">
+            <span class="method-card-num">4,100+</span>
+            <div class="method-card-title">Companies</div>
+            <div class="method-card-sub">LESG Workspace Dataset</div>
+          </div>
+          <div class="method-plus">+</div>
+          <div class="method-card">
+            <span class="method-card-num">∫</span>
+            <div class="method-card-title">Quantitative Analysis</div>
+            <div class="method-card-sub">Regression Models</div>
+          </div>
+          <div class="method-plus">+</div>
+          <div class="method-card">
+            <span class="method-card-num">◇</span>
+            <div class="method-card-title">Case Studies</div>
+            <div class="method-card-sub">Semi-Structured Interviews</div>
+          </div>
+        </div>
+
+        <!-- INSIGHT: CASH -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Cash Buys Time</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>Cash rarely creates growth on its own. But during a recession, it buys something equally valuable: time.</p>
+          <p>Companies with healthy liquidity can continue paying suppliers, investing in operations and supporting employees while competitors cut back aggressively. More importantly, they gain the flexibility to act when opportunities appear — whether through acquisitions, innovation or market expansion.</p>
+          <p>But cash should not become inertia. Holding liquidity without deploying it strategically can eventually weaken long-term performance. The strongest companies treat cash not only as protection, but as optionality.</p>
+        </div>
+
+        <!-- INSIGHT: ESG -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">ESG is Not a Luxury During Uncertainty</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>One of the more surprising patterns during economic downturns is that companies maintaining ESG investments often outperform those that abandon them.</p>
+          <p>The reason is not purely ethical. Strong environmental, social and governance practices build trust across stakeholders — employees, customers, regulators and investors — precisely when uncertainty is highest.</p>
+          <p><strong>Trust creates resilience.</strong></p>
+          <p>Companies with strong stakeholder relationships tend to navigate disruption with greater flexibility and lower reputational risk. ESG initiatives can also improve operational efficiency over time through energy savings, stronger talent retention and more stable access to capital.</p>
+          <p>During difficult periods, cutting trust-building investments may improve short-term margins, but often weakens long-term competitiveness.</p>
+        </div>
+
+        <!-- INSIGHT: AGILITY -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Resilience Depends on Organisational Agility</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>Economic shocks expose the difference between companies that can adapt quickly and those trapped by rigid structures.</p>
+          <p>Firms with agile governance models — independent boards, transparent communication and performance-linked accountability — tend to respond faster to changing market conditions. In contrast, highly defensive or entrenched leadership teams often delay difficult decisions, holding onto pre-crisis assumptions for too long.</p>
+          <p>The same applies operationally.</p>
+          <p>Companies with formal crisis-management systems, business continuity plans and scenario-planning routines generally experience less disruption during downturns. These systems do more than reduce operational risk; they create organisational confidence and faster decision-making under pressure.</p>
+          <p><strong>In uncertain environments, adaptability becomes a strategic asset.</strong></p>
+        </div>
+
+        <!-- INSIGHT: EFFICIENCY -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Cutting Costs ≠ Becoming Efficient</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>One of the most common recession responses is large-scale layoffs. Yet evidence suggests this is often a short-sighted solution.</p>
+          <p>Reducing headcount may improve quarterly numbers, but it can also damage morale, destroy institutional knowledge and create expensive rehiring cycles later. Higher-performing firms typically focus first on operational efficiency rather than indiscriminate workforce reduction.</p>
+          <p>Reducing unnecessary SG&amp;A expenses, simplifying workflows, improving energy efficiency and eliminating process waste often creates more sustainable savings while protecting long-term capability.</p>
+          <p><strong>The goal is not simply to become smaller during a downturn. It is to become more focused.</strong></p>
+        </div>
+
+        <!-- INSIGHT: INNOVATION -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Innovation Matters Most When Conditions Are Difficult</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>Recessions often trigger cuts in R&amp;D and digital investment because their returns are less immediate. Yet this is precisely why maintaining innovation spending can become a competitive differentiator.</p>
+          <p>When competitors reduce experimentation, companies that continue investing in technology, digital transformation and product development position themselves for stronger recovery once markets stabilise.</p>
+          <p>The pandemic accelerated this reality dramatically. Businesses that had already invested in digital infrastructure, remote collaboration and automation adapted far more smoothly than those relying on legacy systems.</p>
+          <p>Technology investment is no longer a support function. Increasingly, it shapes how resilient and adaptable a company can become.</p>
+        </div>
+
+        <!-- INSIGHT: MARKETING -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Marketing During a Downturn</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block reveal">
+          <p>Interestingly, increasing marketing spend alone does not consistently improve recession performance.</p>
+          <p><strong>What matters is relevance.</strong></p>
+          <p>During uncertain periods, audiences become more selective, value-conscious and emotionally sensitive. Effective marketing during a downturn is less about volume and more about clarity, trust and understanding changing customer behaviour.</p>
+          <p>Brands that communicate with precision — through targeted digital channels, useful content and authentic positioning — often outperform companies relying on broad, generic campaigns.</p>
+          <p>In difficult periods, strategic focus matters more than visibility alone.</p>
+        </div>
+
+        <!-- FRAMEWORK -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">A Strategic Resilience Framework</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="framework reveal">
+          <p class="framework-intro">Looking across the research, three broad portfolios of strategic behaviour consistently emerged. Rather than relying on a single action, resilient companies tend to combine short-term discipline with long-term investment and organisational transformation. These patterns can be summarised into a three-layer strategic resilience framework.</p>
+
+          <div class="framework-steps">
+
+            <div class="framework-step">
+              <div class="framework-step-line">
+                <div class="framework-step-dot"></div>
+                <div class="framework-step-vline"></div>
+              </div>
+              <div class="framework-step-body">
+                <span class="framework-step-tag">1 · Short-Term Survival</span>
+                <h3 class="framework-step-heading">Protecting Operational Continuity</h3>
+                <div class="framework-step-focus">Key strategic combinations</div>
+                <ul class="framework-step-list">
+                  <li>Strengthening liquidity</li>
+                  <li>Reducing SG&amp;A inefficiencies</li>
+                  <li>Managing workforce reductions cautiously</li>
+                  <li>Executing targeted and adaptive marketing strategies</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="framework-step">
+              <div class="framework-step-line">
+                <div class="framework-step-dot"></div>
+                <div class="framework-step-vline"></div>
+              </div>
+              <div class="framework-step-body">
+                <span class="framework-step-tag">2 · Long-Term Growth</span>
+                <h3 class="framework-step-heading">Building Competitive Resilience</h3>
+                <div class="framework-step-focus">Key strategic combinations</div>
+                <ul class="framework-step-list">
+                  <li>Maintaining ESG commitments</li>
+                  <li>Reducing managerial entrenchment</li>
+                  <li>Strengthening crisis-management systems</li>
+                  <li>Improving operational efficiency</li>
+                  <li>Sustaining R&amp;D investment</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="framework-step">
+              <div class="framework-step-line">
+                <div class="framework-step-dot"></div>
+                <div class="framework-step-vline"></div>
+              </div>
+              <div class="framework-step-body">
+                <span class="framework-step-tag">3 · Strategic Transformation</span>
+                <h3 class="framework-step-heading">Preparing for Structural Change</h3>
+                <div class="framework-step-focus">Key strategic combinations</div>
+                <ul class="framework-step-list">
+                  <li>Adopting emerging technologies</li>
+                  <li>Building agile organisational structures</li>
+                  <li>Expanding business intelligence capabilities</li>
+                  <li>Diversifying geographically where appropriate</li>
+                  <li>Reshaping product portfolios</li>
+                  <li>Managing business cycles strategically</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PULL QUOTE -->
+        <div class="pull-quote reveal">
+          <blockquote>
+            "Resilience is not only about surviving volatility. It is about having the conviction to keep investing in the future when others stop."
+          </blockquote>
+        </div>
+
+        <!-- FINAL THOUGHT -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Resilience is a Portfolio of Choices</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="prose-block final-thought reveal">
+          <p>Resilience does not come from a single strategy. It emerges from a combination of mutually reinforcing decisions.</p>
+          <p>Cash reserves provide flexibility. ESG builds trust. Agile governance enables faster adaptation. Operational discipline protects core capability. Innovation and technology investment prepare companies for recovery before recovery actually arrives.</p>
+          <p>The organisations that emerge stronger from a crisis are rarely the ones reacting fastest in the moment.</p>
+          <p>More often, they are the ones that spent years building resilience, strategic patience and long-term thinking before uncertainty appeared.</p>
+          <p>In that sense, resilience is not only about surviving volatility.</p>
+          <p><strong>It is about having the conviction to keep investing in the future when others stop.</strong></p>
+        </div>
+
+        <!-- RELATED THOUGHTS -->
+        <div class="section-rule reveal">
+          <span class="section-rule-label">Related Thoughts</span>
+          <div class="section-rule-line"></div>
+        </div>
+
+        <div class="related-grid reveal">
+          <a class="related-card" href="ai-marketing.html">
+            <span class="related-card-label">Marketing · AI · Strategy</span>
+            <span class="related-card-title">How AI Is Rewriting the Role of Marketing</span>
+            <span class="related-card-link">
+              Read <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="related-card" href="marketing-agents.html">
+            <span class="related-card-label">Marketing · AI Agents</span>
+            <span class="related-card-title">Top 10 Marketing Agents for 2026</span>
+            <span class="related-card-link">
+              Read <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── ARTICLE FOOTER ── -->
+  <footer class="article-footer">
+    <div class="article-footer-inner">
+      <a href="../index.html#thoughts" class="back-link">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Thoughts</span>
+      </a>
+      <span class="footer-byline">Lu You · 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Nav shadow on scroll
+    const nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 10
+        ? '0 1px 24px rgba(44,43,58,0.08)'
+        : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
